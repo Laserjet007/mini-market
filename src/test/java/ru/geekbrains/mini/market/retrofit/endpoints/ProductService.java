@@ -6,7 +6,7 @@ import ru.geekbrains.mini.market.retrofit.dto.CategoryDto;
 import ru.geekbrains.mini.market.retrofit.dto.ProductDto;
 
 import java.util.List;
-
+//retrofit идеально подходит для android
 //в ретрофите уже заложена инфа как нужно делать
 public interface ProductService {
     @GET("products/{ID}")                                                              //как так категория гет то аннотация соответствующая (ставим скобки и id вместо 1)
@@ -19,7 +19,7 @@ public interface ProductService {
     Call<ProductDto> createProducts(@Body ProductDto productDto);                      //отправляем не параметры, а body. @Header("Autorization" String token)- прокинуть Header
 
     @PUT("products/{ID}")                                                              //изменение продукта
-    Call<ProductDto> createProducts(@Path("id")int id, @Body ProductDto productDto);
+    Call<ProductDto> changeProducts(@Path("id")int id, @Body ProductDto productDto);
 
     @DELETE("products/{ID}")                                                              //удаление продукта
     Call<Void> deleteProducts(@Path("id")int id);
