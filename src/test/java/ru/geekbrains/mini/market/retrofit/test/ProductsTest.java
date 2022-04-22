@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import retrofit2.Response;
 import ru.geekbrains.mini.market.retrofit.dto.ProductDto;
-import ru.geekbrains.mini.market.retrofit.endpoints.ProductService;
 
 import java.util.Objects;
 
@@ -24,7 +23,7 @@ public class ProductsTest {
     @BeforeEach
     void setUp() {                                                                               //формируем productDto
         productDto = new ProductDto()
-                .withCategoryTitle(getCategoryService().getCategory(1).execute().body().getTitle())
+                .withCategoryTitle(Objects.requireNonNull(getCategoryService().getCategory(1).execute().body()).getTitle())
                 .withTitle(new Faker().food().ingredient())
                 .withPrice(300);
     }
