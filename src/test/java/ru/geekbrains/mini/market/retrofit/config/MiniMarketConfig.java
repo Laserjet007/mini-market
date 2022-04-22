@@ -7,6 +7,6 @@ import org.aeonbits.owner.ConfigFactory;
     public interface MiniMarketConfig extends Config {
         MiniMarketConfig miniMarketConfig = ConfigFactory.create(MiniMarketConfig.class);
 
-        String baseURI();
+        String baseURL();
     }
 

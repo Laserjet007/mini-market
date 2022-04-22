@@ -3,10 +3,10 @@ package ru.geekbrains.mini.market.retrofit.util;
 import lombok.experimental.UtilityClass;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
-import ru.geekbrains.mini.market.entites.Product;
+
 import ru.geekbrains.mini.market.retrofit.endpoints.CategoryService;
 import ru.geekbrains.mini.market.retrofit.endpoints.ProductService;
-import ru.geekbrains.mini.market.retrofit.test.ProductsTest;
+
 
 import static ru.geekbrains.mini.market.retrofit.config.MiniMarketConfig.miniMarketConfig;
 
@@ -15,7 +15,7 @@ import static ru.geekbrains.mini.market.retrofit.config.MiniMarketConfig.miniMar
 public class RetrofitUtil {
     public Retrofit getRetrofit() {
         return new Retrofit.Builder()                                             //билдим ретрофит с нужными параметрами
-                .baseUrl(miniMarketConfig.baseURI())                              //прописываем url
+                .baseUrl(miniMarketConfig.baseURL())                              //прописываем url
                 .addConverterFactory(JacksonConverterFactory.create())            //прописываем что будем работать с jackson
                 .build();
 

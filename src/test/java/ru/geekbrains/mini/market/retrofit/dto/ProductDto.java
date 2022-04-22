@@ -22,5 +22,4 @@ public class ProductDto {
 	@JsonProperty("title")
 	private String title;
 
-    public ProductDto withTitle()//вместо аннотации @With можно использовать следующую конструкцию
 }

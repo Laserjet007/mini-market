@@ -12,6 +12,7 @@ import ru.geekbrains.mini.market.retrofit.endpoints.ProductService;
 import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static ru.geekbrains.mini.market.retrofit.util.RetrofitUtil.getCategoryService;
 import static ru.geekbrains.mini.market.retrofit.util.RetrofitUtil.getProductService;
 
 //тест на создание и удаление продукта
@@ -19,10 +20,11 @@ public class ProductsTest {
     ProductDto productDto;                                                                        //для создания продукта делаем Dto
     int productId;                                                                                //создаём переменную для дальнейшей очистки результата
 
+    @SneakyThrows
     @BeforeEach
     void setUp() {                                                                               //формируем productDto
         productDto = new ProductDto()
-                .withCategoryTitle()
+                .withCategoryTitle(getCategoryService().getCategory(1).execute().body().getTitle())
                 .withTitle(new Faker().food().ingredient())
                 .withPrice(300);
     }
